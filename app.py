@@ -17,7 +17,7 @@ from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Step 1: Read law book document
+# Step 1: Read book document
 def read_docx(file_path):
     doc = docx.Document(file_path)
     text = []
@@ -63,7 +63,7 @@ book_tfidf = tfidf_vectorizer.fit_transform([book_text_processed])
 taxonomy_entries = list(taxonomy_hierarchy.keys())
 taxonomy_tfidf = tfidf_vectorizer.transform(taxonomy_entries)
 
-# Calculate cosine similarity between law book sections and taxonomy entries
+# Calculate cosine similarity between book sections and taxonomy entries
 similarity_scores = cosine_similarity(book_tfidf, taxonomy_tfidf)
 
 # Step 5: Assignment Process
